@@ -3,6 +3,7 @@ import { Sidebar } from './components/Sidebar';
 
 import styles from './App.module.css';
 import './global.css';
+import { Post } from './components/Post';
 
 export const App = () => {
   return (
@@ -12,7 +13,9 @@ export const App = () => {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-        
+          <Post />
+          <Post />
+          <Post />
         </main>
       </div>
     </>
