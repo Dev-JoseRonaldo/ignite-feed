@@ -1,7 +1,7 @@
 
 import styles from './styles.module.css';
  
-import Avatar from '../../assets/avatar.png'
+import avatarImg from "../../assets/avatar.png"
 
 export function Sidebar() {
   return (
@@ -12,7 +12,7 @@ export function Sidebar() {
       />
 
       <div className={styles.profile}>
-        <img className='avatar' src={Avatar} />
+        <img className='avatar' src={avatarImg} />
         
         <strong>José Ronaldo</strong>
         <span>Front-end Developer</span>
