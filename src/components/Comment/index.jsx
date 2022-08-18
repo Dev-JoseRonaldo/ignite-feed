@@ -5,7 +5,7 @@ import styles from './styles.module.css';
 import avatarImg from "../../assets/avatar.png"
 import { Avatar } from '../Avatar';
 
-export function Comment() {
+export function Comment({ content }) {
   return (
     <div className={styles.comment}>
       <Avatar hasBorder={false} src={avatarImg} alt="" />
@@ -22,7 +22,7 @@ export function Comment() {
               <Trash />
             </button>
           </header>
-          <p>Muito bom, parabéns!! 👏👏</p>
+          <p>{content}</p>
         </div>
         <footer>
           <button>
