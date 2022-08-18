@@ -5,7 +5,11 @@ import styles from './styles.module.css';
 import avatarImg from "../../assets/avatar.png"
 import { Avatar } from '../Avatar';
 
-export function Comment({ content }) {
+export function Comment({ content, onDeleteComment }) {
+  function handleDeleteComment() {
+    onDeleteComment(content)
+  }
+
   return (
     <div className={styles.comment}>
       <Avatar hasBorder={false} src={avatarImg} alt="" />
@@ -15,11 +19,11 @@ export function Comment({ content }) {
           <header>
             <div className={styles.authorAndTime}>
               <strong>José Ronaldo</strong>
-              <time title="16 de agosto ás 08:13h" dataTime="2022-08-16 08:13:30">cerca de 1h atrás</time>
+              <time title="16 de agosto ás 08:13h" datatime="2022-08-16 08:13:30">cerca de 1h atrás</time>
             </div>
 
             <button title='Deletar Comentário'>
-              <Trash />
+              <Trash onClick={handleDeleteComment}/>
             </button>
           </header>
           <p>{content}</p>
