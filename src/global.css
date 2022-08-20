@@ -1,6 +1,6 @@
 :root {
   --white: #fff;
-  --logo-color: #E1E1E6;
+  --logo-color: #e1e1e6;
   --gray-100: #e1e1e6;
   --gray-300: #c4c4cc;
   --gray-400: #8d8d99;
@@ -39,4 +39,85 @@ button {
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
   font-size: 1rem;
+}
+
+.react-modal-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.react-modal-content:focus {
+  box-shadow: none;
+}
+
+.react-modal-content {
+  background-color: #202024;
+  width: 100%;
+  max-width: 432px;
+  text-align: center;
+  padding: 1.5rem 0;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 1.5rem;
+}
+
+.react-modal-content h2 {
+  color: var(--gray-100);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.react-modal-content p {
+  color: var(--gray-300);
+  font-size: 1.125rem;
+  font-weight: 400;
+  max-width: 280px;
+}
+
+.react-modal-btn-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.react-modal-btn-box button {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  line-height: 0;
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+
+  font-size: 0.875rem;
+  font-weight: 700;
+
+  transition: background-color 0.2s ease-in-out;
+}
+
+.react-modal-btn-box .react-modal-btn-cancel {
+  color: var(--gray-100);
+}
+
+.react-modal-btn-box .react-modal-btn-confirm {
+  color: var(--red-500);
+}
+
+.react-modal-btn-box .react-modal-btn-cancel:hover,
+.react-modal-btn-box .react-modal-btn-confirm:hover,
+.react-modal-btn-box .react-modal-btn-cancel:focus,
+.react-modal-btn-box .react-modal-btn-confirm:focus {
+  background-color: var(--gray-700);
 }
