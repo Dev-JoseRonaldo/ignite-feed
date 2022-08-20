@@ -6,6 +6,7 @@ import './global.css';
 import { Post } from './components/Post';
 import Modal from 'react-modal';
 import { useState } from 'react';
+import { DeleteCommentModal } from './components/DeleteCommentModal';
 
 Modal.setAppElement('#root');
 
@@ -54,9 +55,10 @@ export const App = () => {
 
   return (
     <>
-      <Modal isOpen={isDeleteCommentModalOpen} onRequestClose={handleCloseDeleteCommentModal}>
-        <h2>Modalzin</h2>
-      </Modal>
+      <DeleteCommentModal
+        isOpen={isDeleteCommentModalOpen} 
+        onRequestClose={handleCloseDeleteCommentModal}
+      />
       <Header />
       <div className={styles.wrapper}>
         <Sidebar />

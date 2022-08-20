@@ -1,5 +1,15 @@
-export const DeleteCommentModal = () => {
+import Modal from "react-modal"
+
+interface DeleteCommentModalProps {
+  isOpen: boolean;
+  onRequestClose: () => void;
+}
+
+export const DeleteCommentModal = ({ isOpen, onRequestClose }: DeleteCommentModalProps) => {
+
   return (
-    <div>DeleteCommentModal</div>
+    <Modal isOpen={isOpen} onRequestClose={onRequestClose}>
+      <h2>Modalzin</h2>
+    </Modal>
   )
 }
