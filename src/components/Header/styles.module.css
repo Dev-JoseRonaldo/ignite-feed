@@ -2,9 +2,16 @@
   background: var(--gray-800);
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 1rem;
   padding: 1.25rem 0;
+
+  color: var(--logo-color);
+  font-weight: 700;
+  font-size: 1.625rem;
+  letter-spacing: 1px;
 }
 
 .header img {
-  height: 2rem;
+  height: 3.75rem;
 }
