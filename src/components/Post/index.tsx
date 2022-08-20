@@ -21,9 +21,10 @@ interface PostProps {
   author: Author;
   publishedAt: Date;
   content: Content[];
+  onOpenDeleteCommentModal: () => void;
 }
 
-export const Post = ({author, publishedAt, content}: PostProps) => {
+export const Post = ({author, publishedAt, content,onOpenDeleteCommentModal}: PostProps) => {
   const [comments, setComments] = useState([
     "Post muito bacana, hein?!"
   ])
@@ -115,6 +116,7 @@ export const Post = ({author, publishedAt, content}: PostProps) => {
               key={comment} 
               content={comment} 
               onDeleteComment={deleteComment}
+              onOpenDeleteCommentModal={onOpenDeleteCommentModal}
             />
           )
         })}

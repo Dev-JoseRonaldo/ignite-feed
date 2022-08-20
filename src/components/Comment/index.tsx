@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import Modal from 'react-modal'
+
 import { ThumbsUp, Trash } from 'phosphor-react';
 
 import { Avatar } from '../Avatar';
@@ -10,9 +12,10 @@ import avatarImg from "../../assets/avatar.png"
 interface CommentProps {
   content: string;
   onDeleteComment: (comment: string) => void;
+  onOpenDeleteCommentModal: () => void;
 }
 
-export function Comment({ content, onDeleteComment }: CommentProps) {
+export function Comment({ content, onDeleteComment, onOpenDeleteCommentModal }: CommentProps) {
   const [likeCount, setLikeCount] = useState(0)
 
   function handleDeleteComment() {
@@ -38,7 +41,9 @@ export function Comment({ content, onDeleteComment }: CommentProps) {
             </div>
 
             <button title='Deletar Comentário'>
-              <Trash onClick={handleDeleteComment}/>
+              <Trash //onClick={handleDeleteComment}
+                onClick={onOpenDeleteCommentModal}
+              />
             </button>
           </header>
           <p>{content}</p>

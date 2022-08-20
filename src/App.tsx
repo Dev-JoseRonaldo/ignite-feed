@@ -4,6 +4,10 @@ import { Sidebar } from './components/Sidebar';
 import styles from './App.module.css';
 import './global.css';
 import { Post } from './components/Post';
+import Modal from 'react-modal';
+import { useState } from 'react';
+
+Modal.setAppElement('#root');
 
 export const App = () => {
 
@@ -38,8 +42,21 @@ export const App = () => {
     }
   ]
 
+  const [isDeleteCommentModalOpen,setIsDeleteCommentModalOpen] = useState(false)
+
+  function handleOpenDeleteCommentModal(){
+    setIsDeleteCommentModalOpen(true)
+  }
+
+  function handleCloseDeleteCommentModal(){
+    setIsDeleteCommentModalOpen(false)
+  }
+
   return (
     <>
+      <Modal isOpen={isDeleteCommentModalOpen} onRequestClose={handleCloseDeleteCommentModal}>
+        <h2>Modalzin</h2>
+      </Modal>
       <Header />
       <div className={styles.wrapper}>
         <Sidebar />
@@ -51,6 +68,7 @@ export const App = () => {
                 author = {post.author}
                 content = {post.content}
                 publishedAt = {post.publishedAt} 
+                onOpenDeleteCommentModal={handleOpenDeleteCommentModal}
               />
             )
           })}         
