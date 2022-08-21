@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import Modal from 'react-modal'
+import { DeleteCommentModal } from '../DeleteCommentModal';
 
 import { ThumbsUp, Trash } from 'phosphor-react';
-
 import { Avatar } from '../Avatar';
 
 import styles from './styles.module.css';
@@ -12,11 +11,11 @@ import avatarImg from "../../assets/avatar.png"
 interface CommentProps {
   content: string;
   onDeleteComment: (comment: string) => void;
-  onOpenDeleteCommentModal: () => void;
 }
 
-export function Comment({ content, onDeleteComment, onOpenDeleteCommentModal }: CommentProps) {
+export function Comment({ content, onDeleteComment}: CommentProps) {
   const [likeCount, setLikeCount] = useState(0)
+  const [isDeleteCommentModalOpen,setIsDeleteCommentModalOpen] = useState(false)
 
   function handleDeleteComment() {
     onDeleteComment(content)
@@ -26,6 +25,14 @@ export function Comment({ content, onDeleteComment, onOpenDeleteCommentModal }: 
     setLikeCount((state) => {
       return state + 1
     })
+  }
+
+  function handleOpenDeleteCommentModal(){
+    setIsDeleteCommentModalOpen(true)
+  }
+
+  function handleCloseDeleteCommentModal(){
+    setIsDeleteCommentModalOpen(false)
   }
 
   return (
@@ -41,13 +48,18 @@ export function Comment({ content, onDeleteComment, onOpenDeleteCommentModal }: 
             </div>
 
             <button title='Deletar Comentário'>
-              <Trash //onClick={handleDeleteComment}
-                onClick={onOpenDeleteCommentModal}
-              />
+              <Trash onClick={handleOpenDeleteCommentModal} />
             </button>
           </header>
           <p>{content}</p>
         </div>
+
+        <DeleteCommentModal
+          isOpen={isDeleteCommentModalOpen} 
+          onRequestClose={handleCloseDeleteCommentModal}
+          onHandleDeleteComment={handleDeleteComment}
+        />
+
         <footer>
           <button onClick={handleLikeComment}>
             <ThumbsUp />

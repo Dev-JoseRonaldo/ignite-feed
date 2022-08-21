@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
 import { format, formatDistanceToNow } from 'date-fns'
 import ptBR from 'date-fns/esm/locale/pt-BR';
 
@@ -21,10 +21,9 @@ interface PostProps {
   author: Author;
   publishedAt: Date;
   content: Content[];
-  onOpenDeleteCommentModal: () => void;
 }
 
-export const Post = ({author, publishedAt, content,onOpenDeleteCommentModal}: PostProps) => {
+export const Post = ({author, publishedAt, content}: PostProps) => {
   const [comments, setComments] = useState([
     "Post muito bacana, hein?!"
   ])
@@ -116,7 +115,6 @@ export const Post = ({author, publishedAt, content,onOpenDeleteCommentModal}: Po
               key={comment} 
               content={comment} 
               onDeleteComment={deleteComment}
-              onOpenDeleteCommentModal={onOpenDeleteCommentModal}
             />
           )
         })}
